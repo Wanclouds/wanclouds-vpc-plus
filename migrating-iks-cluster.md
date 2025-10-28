@@ -79,7 +79,7 @@ Review the following limitations:
 {: #data-migration}
 
 VPC+ allows seamless, direct data transfer from your source to target environment—no additional storage medium required.
-This applies to both **Virtual Machine (VM) and Bare Metal** environments. The system automatically syncs changes every 10 minutes, and during the next data migration, it only transfers the incremental changes—ensuring faster and more efficient data movement.
+This applies to both **Virtual Machine (VM) and Bare Metal** environments. The system automatically syncs changes every 10 seconds(default value is 10 sec also can adjust on demand), and during the next data migration, it only transfers the incremental changes—ensuring faster and more efficient data movement.
 
 **To learn more about the process:**
    * Log in to wanclouds VPC+.
