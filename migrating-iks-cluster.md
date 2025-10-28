@@ -60,16 +60,30 @@ Review the following limitations:
 ## Migrating to VPC
 {: #migrate-kubernetes-cluster}
 
-1. Log in to the VPC+ tool.
-2. Add your classic and VPC accounts. When you add your VPC account, make sure to provide the _Access Key ID_ and _Secret Access Key_, which are required to migrate your cluster. 
-3. Select the **Migrate Infrastructure** option in the {{site.data.keyword.vpc-plus-migration}} interface, and click **Discover**. 
-4. Select your {{site.data.keyword.cloud_notm}} classic account, and then click **Create VPC Migration Workspace**.
-5. You can now select the resource group, region, and zone where you want to migrate in VPC and the {{site.data.keyword.containerlong_notm}} or {{site.data.keyword.redhat_openshift_notm}} cluster that needs to be migrated. 
-6. Review the requirements and considerations for the following components:
-    * Address prefix - Classic address prefixes are not supported in VPC. Make sure to create a new address prefix and enable the public gateway.
-    * {{site.data.keyword.containerlong_notm}} or {{site.data.keyword.redhat_openshift_notm}} cluster name - The cluster name must be a new and unique.
-    * Worker nodes - Classic worker pool flavors are not supported in VPC. 
-7. After you select the appropriate resources and components, you can migrate your cluster to VPC. 
-8. After you migrate your clusters, verify and validate the clusters. You might need to do some fixes or redeployments on the migrated clusters, especially for {{site.data.keyword.redhat_openshift_notm}} clusters if you are using tooling specific to {{site.data.keyword.redhat_openshift_notm}}, such as internal image registry or operators.
+1.  Log in to the VPC+ tool.
+2.  Add your classic and VPC accounts.
+3.  Select the Manage VPCs option in the VPC+ Cloud Migration interface, and click IBM Cloud.
+4.  Select your IBM VPC, and then select any destination Region.
+5.  Click on the Kubernates Cluster and then click on Migrate Cluster.
+5.  Select the **Migrate Infrastructure** option in the {{site.data.keyword.vpc-plus-migration}} interface, and click **Discover**. 
+6.  Select the Classic Cloud account and click on the discover clusers. Once discovery is completed, select the cluster which one you want to migrate. After that choose the option to migrate the cluster in the existing VPC or create a new VPC.
+7.  You can now select the resource group where you want to migrate in VPC (Provide VPC name incase of creating new VPC), Cloud Object Storage, Bucket (Where the data will be stored) Cloud Object Storage Creds (An access key with HMAC value as true and manager role is required for migration). 
+8.  Review the requirements and considerations for the following components:
+     * Address prefix - Classic address prefixes are not supported in VPC. Make sure to create a new address prefix and enable the public gateway.
+     * {{site.data.keyword.containerlong_notm}} or {{site.data.keyword.redhat_openshift_notm}} cluster name - The cluster name must be a new and unique.
+     * Worker nodes - Classic worker pool flavors are not supported in VPC. Should be updated with available VPC flavour. 
+9.  After you select the appropriate resources and components, you can migrate your cluster to VPC. 
+10. After you migrate your clusters, verify and validate the clusters. You might need to do some fixes or redeployments on the migrated clusters, especially for {{site.data.keyword.redhat_openshift_notm}} clusters if you are using tooling specific to {{site.data.keyword.redhat_openshift_notm}}, such as internal image registry or operators.
 
+## Data Migration
+{: #data-migration}
 
+VPC+ allows seamless, direct data transfer from your source to target environment—no additional storage medium required.
+This applies to both **Virtual Machine (VM) and Bare Metal** environments. The system automatically syncs changes every 10 minutes, and during the next data migration, it only transfers the incremental changes—ensuring faster and more efficient data movement.
+
+**To learn more about the process:**
+   * Log in to wanclouds VPC+.
+   * Navigate to Disaster Recovery.
+   * Select Virtual Machine.
+   * Click on Setup Backup Manager > Data Sync.
+   * Follow the on-screen instructions to set up the agent and begin data migration.

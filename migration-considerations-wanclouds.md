@@ -24,17 +24,19 @@ subcollection: wanclouds-vpc-plus
 # Migration considerations
 {: #migration-considerations}
 
-The {{site.data.keyword.vpc-plus-migration}} tool duplicates your environment on {{site.data.keyword.vpc_full}} and does not cancel your {{site.data.keyword.cloud_notm}} classic infrastructure. You can cancel your existing classic environment from the {{site.data.keyword.cloud_notm}} console.
+The VPC+ Cloud Migration tool duplicates your environment on IBM Cloud® Virtual Private Cloud and does not cancel your IBM Cloud classic infrastructure. You can cancel your existing classic environment from the IBM Cloud console.
 
 ## Considerations for virtual server instances
 {: #virtual-server-instances}
 
 Virtual server instances must use one of the following operating systems:
-* CentOS 7.x, 8.x
-* Debian 9.x, 10.x
-* Red Hat 7.x, 8.x
-* Ubuntu Linux 16.04.x, 18.04.x
-* Windows 2012, 2012R2, 2016
+* CentOS 7.x, 8.x, 9.x
+* CentOS Stream 8.x, 9.x, 10.x
+* Debian 8.x, 9.x, 10.x, 11.x, 12.x, 13.x
+* Rocky 8.x, 9.x, 10.x
+* Red Hat 7.x, 8.x, 9.x
+* Ubuntu Linux 16.04.x, 18.04.x, 20.04.x, 21.04.x, 22.04.x, 24.04.x
+* Windows 2012, 2016, 2019, 2022, 2025
 
 If you have virtual servers that are not using one of the supported operating systems, you need to migrate them to a supported level before migration.
 
@@ -44,7 +46,7 @@ Virtual servers must be cloud-init enabled and have Virtio drivers. For Linux im
 Additionally, virtual servers must meet the following requirements:
 * No add-ons
 * Stock OS image
-* Primary volume size doesn't exceed 100 GB
+* Primary volume size doesn't exceed 250 GB
 * Supported operating systems
 
 The {{site.data.keyword.vpc-plus-migration}} tool does not log in to your virtual server instances nor does it have access to them. {{site.data.keyword.vpc-plus-migration}}, which is managed by Wanclouds, follows industry best practices to ensure that their application tool is secure and protects your sensitive information.
@@ -58,7 +60,7 @@ You can migrate a VMDK-formatted image from classic to VPC by using the VPC+ too
 * Supported operating system
 * Cloud-init enabled
 * Virtio drivers
-* Single vHDD (no secondary) and does not exceed 100 GB
+* Single VHD (no secondary) and does not exceed 250 GB
 
 If you decide to use the VPC+ tool to convert and migrate your VMDK image, you must export the image to {{site.data.keyword.cos_full_notm}} before you begin using the tool. For more information, see [Upload data](/docs/cloud-object-storage?topic=cloud-object-storage-upload).
 {: important}
@@ -110,21 +112,6 @@ To migrate block and NAS storages to VPC along with the virtual server instance,
 1. Your {{site.data.keyword.cloud_notm}} account should have administrator privileges for both classic and VPC. Storage volumes are created for the account provided within the VPC.
 2. You need to download the script that is provided by the VPC+ tool and run it on your classic virtual server instance with the required privileges. Instructions are provided in the script. The script installs the content migration agent that collects the necessary metadata that is needed for migration. The content migration agent collects information on attached storage, for example, name, partition information for block devices, mount points, file system types. The agent uploads the metadata to the VPC+ controller, providing an option later in the tool to select the wanted volumes for migration. For this to happen, your virtual server needs external connectivity to upload metadata files to the VPC+ controller.
 3. In the {{site.data.keyword.cloud_notm}} console, navigate to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > Classic Infrastructure > Devices > your virtual server instance**. Select the _Storage_ tab, and authorize your block and file storage if not listed there.
-
-### Limitations
-{: #storage- migration-limitations}
-
-Review the following storage migration limitations: 
-
-* All migrations are limited to a volume size of 2 TB only.
-* You can choose only four volumes while provisioning a virtual server instance. Only four attached volumes, in addition to your boot volume, can be migrated. If you have more than four volumes in your classic instance, see [Volume attachment limits](/docs/vpc?topic=vpc-attaching-block-storage#vol-attach-limits) for details and use the _Content Data Migrator_ in the VPC+ tool to migrate the additional volumes.
-* Up to four primary partitions or three primary with two logical on the fourth partition can be migrated.
-* Migration of block volumes and partitions without file systems is not yet supported.
-* A maximum of 10 IOPS/Gb mapping will be done on virtual server instances for VPC.
-* Migration of storage attached to Windows is not yet supported.
-
-All three storage types can be migrated if your use case satisfies these limitations.
-{: note}
 
 ### Storage migration use cases
 {: #storage-migration-use-cases}
@@ -211,8 +198,10 @@ If your {{site.data.keyword.cloud_notm}} classic environment uses configurations
 With the VPC+ tool, you can discover and migrate your {{site.data.keyword.containerlong_notm}} or {{site.data.keyword.redhat_openshift_full}} cluster from classic to {{site.data.keyword.vpc_short}}. The VPC+ tool identifies all of your clusters and creates a workspace to help you manage your migration. You decide which cluster you want to migrate. 
 
 You can migrate the following versions:
-* {{site.data.keyword.containerlong_notm}} version 1.21+
-* {{site.data.keyword.redhat_openshift_notm}} version 4.6+
+* IBM Cloud Kubernetes Service version (latest supported 3)
+* Red Hat OpenShift version (latest supported 3)
+In-case of end of life operating systems or versions, Please consult with Wanclouds before proceeding.
+{: note}
 
 You can only migrate from a single data center to a single availability zone or multiple data centers to a multi-zone region.
 {: note}
@@ -228,7 +217,6 @@ You need to create an {{site.data.keyword.cos_full_notm}} service credential wit
 Review the following limitations for {{site.data.keyword.containerlong_notm}} or {{site.data.keyword.redhat_openshift_notm}} migration:
 
 - Ingress resources and services are your responsibility.
-- Only block volumes are supported.
-- Velero requires 1 CPU and 500 MB for each node. In some cases, migration might fail due to hardware capacity. In these cases, scaling down resource consumption is required, such as disabling logging, monitoring, or applications.
+- Cluster Backup agent requires 1 CPU and 500 MB for each node. In some cases, migration might fail due to hardware capacity. In these cases, scaling down resource consumption is required, such as disabling logging, monitoring, or applications.
 
 
