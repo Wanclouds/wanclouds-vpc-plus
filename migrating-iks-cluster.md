@@ -62,7 +62,7 @@ Review the following limitations:
 
 1.  Log in to the VPC+ tool.
 2.  Add your classic and VPC accounts.
-3.  Select the Manage VPCs option in the VPC+ Cloud Migration interface, and click IBM Cloud.
+3.  Select the Manage VPCs option in the VPC+ interface, and click IBM Cloud.
 4.  Select your IBM VPC, and then select any destination Region.
 5.  Click on the Kubernates Cluster and then click on Migrate Cluster.
 5.  Select the **Migrate Infrastructure** option in the {{site.data.keyword.vpc-plus-migration}} interface, and click **Discover**. 

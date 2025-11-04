@@ -24,7 +24,7 @@ subcollection: wanclouds-vpc-plus
 # Migration considerations
 {: #migration-considerations}
 
-The VPC+ Cloud Migration tool duplicates your environment on IBM Cloud® Virtual Private Cloud and does not cancel your IBM Cloud classic infrastructure. You can cancel your existing classic environment from the IBM Cloud console.
+The VPC+ tool duplicates your environment on IBM Cloud® Virtual Private Cloud and does not cancel your IBM Cloud classic infrastructure. You can cancel your existing classic environment from the IBM Cloud console.
 
 ## Considerations for virtual server instances
 {: #virtual-server-instances}

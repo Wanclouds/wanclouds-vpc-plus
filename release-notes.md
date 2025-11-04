@@ -17,7 +17,7 @@ content-type: release-note
 {:external: target="_blank" .external}
 {:release-note: data-hd-content-type='release-note'}
 
-# Release notes for VPC+ Cloud Migration
+# Release notes for VPC+
 {: #release-notes}
 
 Use these release notes to learn about the latest updates to {{site.data.keyword.vpc-plus-migration}} that are grouped by date.

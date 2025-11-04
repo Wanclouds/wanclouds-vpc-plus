@@ -19,7 +19,7 @@ subcollection: wanclouds-vpc-plus
 {:important: .important}
 {:table: .aria-labeledby="caption"}
 
-# Getting started with VPC+ Cloud Migration
+# Getting started with VPC+
 {: #getting-started-tutorial}
 
 Use {{site.data.keyword.vpc-plus-migration}} to migrate your {{site.data.keyword.cloud}} classic infrastructure to {{site.data.keyword.cloud_notm}} Virtual Private Cloud (VPC).
@@ -35,21 +35,25 @@ Before you begin migrating your classic infrastructure to VPC, learn more about 
 
 To get the best results from your VPC migration, spend time analyzing your classic environment and learning how the {{site.data.keyword.vpc-plus-migration}} tool handles different components of your environment. For more information, see [Planning for migration](/docs/wanclouds-vpc-plus?topic=wanclouds-vpc-plus-planning-for-migration).
 
-## Step 3. Create an instance of {{site.data.keyword.vpc-plus-migration}} through the VPC+ Cloud Migration
+## Step 3. Create an instance of Custom Migration DR and Management as a Service tile through the IBM Catalog
 {: #step-3-create}
 
-Complete the following steps to create an instance of {{site.data.keyword.vpc-plus-migration}} through the {{site.data.keyword.cloud_notm}} catalog. 
+Complete the following steps to create an instance.
 
-1. Log in to the VPC+ Wanclouds Account by using your IBMid/Account credentials.
-2. In the **Migrate Infrastructure section**, select IBM Cloud Classic to VPC Migration.
-3. On the VPC+ **Virtual Servers** page, click on the Setup the Backup Manager and follow the instructions provided there.
+1. From the tile Creation via IBM Marketplace: Custom Migration DR and Management as a Service
+2. Login to your IBM Cloud account.
+3. Navigate to the [IBM Cloud Catalog](https://cloud.ibm.com/catalog).
+4. In the search bar, type "Custom Migration DR and Management as a Service" and select the tile from the search results.
+5. Select "Custom Migration Request" as the pricing plan.
+6. Click "Create" to create the service instance.
+7. Once the instance is created, you will be redirected to a [form](https://migration.wanclouds.net/?state=abcdefghij&code=fAQjJUXnQ2k). Fill out the required details and submit the form.
 
-## Step 4. Add your IBM Cloud account to Wanclouds VPC+
+## Step 4. Add your IBM Cloud account to Wanclouds VPC+ (Step 4 onward will be completed with assistance from the "Wanclouds team")
 {: #step-4-access}
 
-For VPC+ Cloud Migration to access details of your IBM Cloud configuration, you must add your IBM Cloud account information. Complete the following steps to add your IBM Cloud accounts.
+For VPC+ to access details of your IBM Cloud configuration. Complete the following steps to add your IBM Cloud accounts.
 
-1. In the VPC+ Cloud Migration interface, click **Cloud Accounts**. 
+1. In the VPC+ interface, click **Cloud Accounts** in the left pane. 
 2. On the IBM Cloud Classic tab, provide account information for your IBM Cloud Classic infrastructure environment. This information is used to discover your current environment.
 3. On the IBM Cloud VPC tab, provide account information for your VPC environment. See Gathering IBM Cloud account information for information on where to get these values.
 

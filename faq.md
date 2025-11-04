@@ -21,7 +21,7 @@ subcollection: wanclouds-vpc-plus
 {:faq: data-hd-content-type='faq'}
 
 
-# FAQs for VPC+ Cloud Migration
+# FAQs for VPC+
 {: #wanclouds-vpc-plus-faqs}
 
 FAQs for {{site.data.keyword.vpc-plus-migration}} includes questions about {{site.data.keyword.cloud}} migration. To find all FAQs for {{site.data.keyword.cloud_notm}}, see our [FAQ library](/docs/faqs).
