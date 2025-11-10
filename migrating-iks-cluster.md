@@ -20,10 +20,10 @@ subcollection: wanclouds-vpc-plus
 {:experimental: .experimental}
 {:table: .aria-labeledby="caption"}
 
-# Migrating classic IBM Cloud Kubernetes Service or Red Hat OpenShift cluster to VPC
+# Migrating classic {{site.data.keyword.cloud_notm}} Kubernetes Service or {{site.data.keyword.redhat_openshift_notm}} cluster to VPC
 {: #migrate-classic-kubernetes-red-hat-openshift-cluster}
 
-You can migrate your classic {{site.data.keyword.containerlong}} or {{site.data.keyword.redhat_openshift_full}} cluster to VPC by using the VPC+ tool for clusters that are deployed in a single data center. You can also migrate multiple data centers to a multizone region. VPC+ discovers both the classic and {{site.data.keyword.containerlong_notm}} or {{site.data.keyword.redhat_openshift_notm}} resources and components. Along with the other resources and workloads running within Kubernetes, see the following list for some of the components and resources that are discovered:
+You can migrate your classic {{site.data.keyword.containerlong}} or {{site.data.keyword.redhat_openshift_full}} cluster to VPC by using the {{site.data.keyword.vpc-plus-migration}} tool for clusters that are deployed in a single data center. You can also migrate multiple data centers to a multizone region. {{site.data.keyword.vpc-plus-migration}} discovers both the classic and {{site.data.keyword.containerlong_notm}} or {{site.data.keyword.redhat_openshift_notm}} resources and components. Along with the other resources and workloads running within Kubernetes, see the following list for some of the components and resources that are discovered:
 
 * Worker nodes and pools
 * PODs
@@ -36,12 +36,12 @@ You can migrate your classic {{site.data.keyword.containerlong}} or {{site.data.
 * Custom resource definitions
 * PVC
 
-As part of the migration, the VPC+ tool creates a new cluster in a VPC single availability zone, and backs up and restores the Kubernetes workload resources to your new VPC environment.
+As part of the migration, the {{site.data.keyword.vpc-plus-migration}} tool creates a new cluster in a VPC single availability zone, and backs up and restores the Kubernetes workload resources to your new VPC environment.
 
 ## Before you begin
 {: #before-you-begin}
 
-Before you begin migrating your classic {{site.data.keyword.containerlong_notm}} or {{site.data.keyword.redhat_openshift_notm}} cluster to VPC by using the VPC+ tool, review the following requirements:
+Before you begin migrating your classic {{site.data.keyword.containerlong_notm}} or {{site.data.keyword.redhat_openshift_notm}} cluster to VPC by using the {{site.data.keyword.vpc-plus-migration}} tool, review the following requirements:
 
 1. Be familiar with the [Considerations for {{site.data.keyword.containerlong_notm}} and {{site.data.keyword.redhat_openshift_notm}} migration](/docs/wanclouds-vpc-plus?topic=wanclouds-vpc-plus-migration-considerations#kubernetes-migration).
 2. Make sure that the {{site.data.keyword.containerlong_notm}} or {{site.data.keyword.redhat_openshift_notm}} Administrator role is assigned to your user account. 
@@ -60,9 +60,9 @@ Review the following limitations:
 ## Migrating to VPC
 {: #migrate-kubernetes-cluster}
 
-1.  Log in to the VPC+ tool.
+1.  Log in to the {{site.data.keyword.vpc-plus-migration}} tool.
 2.  Add your classic and VPC accounts.
-3.  Select the Manage VPCs option in the VPC+ interface, and click IBM Cloud.
+3.  Select the Manage VPCs option in the {{site.data.keyword.vpc-plus-migration}} interface, and click {{site.data.keyword.cloud_notm}}.
 4.  Select your IBM VPC, and then select any destination Region.
 5.  Click on the Kubernates Cluster and then click on Migrate Cluster.
 5.  Select the **Migrate Infrastructure** option in the {{site.data.keyword.vpc-plus-migration}} interface, and click **Discover**. 
@@ -78,11 +78,11 @@ Review the following limitations:
 ## Data Migration
 {: #data-migration}
 
-VPC+ allows seamless, direct data transfer from your source to target environment—no additional storage medium required.
+{{site.data.keyword.vpc-plus-migration}} allows seamless, direct data transfer from your source to target environment—no additional storage medium required.
 This applies to both **Virtual Machine (VM) and Bare Metal** environments. The system automatically syncs changes every 10 seconds(default value is 10 sec also can adjust on demand), and during the next data migration, it only transfers the incremental changes—ensuring faster and more efficient data movement.
 
 **To learn more about the process:**
-   * Log in to wanclouds VPC+.
+   * Log in to wanclouds {{site.data.keyword.vpc-plus-migration}}.
    * Navigate to Disaster Recovery.
    * Select Virtual Machine.
    * Click on Setup Backup Manager > Data Sync.
