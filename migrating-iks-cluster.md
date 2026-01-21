@@ -48,14 +48,21 @@ Before you begin migrating your classic {{site.data.keyword.containerlong_notm}}
 3. You need both a classic infrastructure API key and {{site.data.keyword.vpc_short}} API key. 
 4. HMAC keys (_Access Key ID_ and _Secret Access Key_) are required when you add a VPC account for workload backup and restore. 
 
-### Limitations
+## Limitations
 {: #limitations}
 
 Review the following limitations:
 
 * Private clusters cannot be migrated.
-* Only PVC with block storage is supported.
+* Only PVC with **_BLOCK STORAGE_** is supported for migration.
 * For any services that rely on IPs, the IPs must be updated post-migration (for example, DNS, load balancers, security rules, etc.).
+
+## Supported PVCs
+{: #supported-pvcs}
+
+Following PVCs storage types are supported for Migration
+* Block Storage
+
 
 ## Migrating to VPC
 {: #migrate-kubernetes-cluster}
